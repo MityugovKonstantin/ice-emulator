@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Engine;
+using GUI;
 using System.Windows;
 
 namespace IceEmulator
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        // redefining actions on app startup
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            Chassis chassis = new Chassis();
+            MainWindow mainWindow = new MainWindow();
+
+            Presenter presenter = new Presenter(mainWindow, chassis);
+
+            mainWindow.InitializeComponent();
+            mainWindow.Activate();
+            mainWindow.Show();
+        }
     }
 }
