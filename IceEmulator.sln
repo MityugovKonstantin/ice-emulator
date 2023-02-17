@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceEmulator", "IceEmulator\IceEmulator.csproj", "{2012213C-F79F-43D0-A785-D76E7FD3A745}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "IceEmulator\GUI.csproj", "{2012213C-F79F-43D0-A785-D76E7FD3A745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presenter", "Presenter\Presenter.csproj", "{B6128673-0440-49E0-9313-A531851CE77F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chassis", "Chassis\Chassis.csproj", "{65BC9758-B934-4499-B6F2-BFE53ECE8046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{F2A290DC-6FA7-4C1C-92AA-5BBD837D5445}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeCycle", "LifeCycle\LifeCycle.csproj", "{23B17B05-9285-491D-8378-B4ECE5183CE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NatsContracts", "NatsContracts\NatsContracts.csproj", "{9D187D59-ED0E-4D82-8B2E-3F2C8921C0D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{2012213C-F79F-43D0-A785-D76E7FD3A745}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2012213C-F79F-43D0-A785-D76E7FD3A745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2012213C-F79F-43D0-A785-D76E7FD3A745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6128673-0440-49E0-9313-A531851CE77F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6128673-0440-49E0-9313-A531851CE77F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6128673-0440-49E0-9313-A531851CE77F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6128673-0440-49E0-9313-A531851CE77F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65BC9758-B934-4499-B6F2-BFE53ECE8046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65BC9758-B934-4499-B6F2-BFE53ECE8046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65BC9758-B934-4499-B6F2-BFE53ECE8046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65BC9758-B934-4499-B6F2-BFE53ECE8046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2A290DC-6FA7-4C1C-92AA-5BBD837D5445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2A290DC-6FA7-4C1C-92AA-5BBD837D5445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2A290DC-6FA7-4C1C-92AA-5BBD837D5445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2A290DC-6FA7-4C1C-92AA-5BBD837D5445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B17B05-9285-491D-8378-B4ECE5183CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B17B05-9285-491D-8378-B4ECE5183CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B17B05-9285-491D-8378-B4ECE5183CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B17B05-9285-491D-8378-B4ECE5183CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D187D59-ED0E-4D82-8B2E-3F2C8921C0D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D187D59-ED0E-4D82-8B2E-3F2C8921C0D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D187D59-ED0E-4D82-8B2E-3F2C8921C0D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D187D59-ED0E-4D82-8B2E-3F2C8921C0D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
