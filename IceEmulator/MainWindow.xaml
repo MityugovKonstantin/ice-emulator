@@ -34,7 +34,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">Температура окружающей среды, °C</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="OutsideTemperature_TextBox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
             </StackPanel>
 
@@ -46,7 +46,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">Угол крена, °</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="RollAngle_TextBox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
 
             </StackPanel>
@@ -59,7 +59,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">Ручной тормоз</Label>
-                    <CheckBox Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"></CheckBox>
+                    <CheckBox Name="HandBrake_CheckBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"></CheckBox>
                 </Grid>
 
             </StackPanel>
@@ -72,7 +72,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">Передача</Label>
-                    <ComboBox Margin="5" HorizontalContentAlignment="Center" Grid.Column="1">
+                    <ComboBox Name="Rocker_ComboBox" Margin="5" HorizontalContentAlignment="Center" Grid.Column="1">
                         <ComboBoxItem>N</ComboBoxItem>
                         <ComboBoxItem>1</ComboBoxItem>
                         <ComboBoxItem>2</ComboBoxItem>
@@ -91,7 +91,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">Вид движения</Label>
-                    <ComboBox Margin="5" Grid.Column="1">
+                    <ComboBox Name="Movement_ComboBox" Margin="5" Grid.Column="1">
                         <ComboBoxItem>Парковка</ComboBoxItem>
                         <ComboBoxItem>Остановка при работающем двигателе</ComboBoxItem>
                         <ComboBoxItem>Езда вперёд</ComboBoxItem>
@@ -112,7 +112,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* Уровень масла в баке, Л</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="OilLevel_TextBox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
             </StackPanel>
 
@@ -125,7 +125,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0" Grid.ColumnSpan="2">*TMP* давление масла, Атм.</Label>
-                    <TextBox Margin="24,5,25,5" Width="50" Grid.Column="2"></TextBox>
+                    <TextBox Name="OilPressure_TextBox" Margin="24,5,25,5" Width="50" Grid.Column="2"></TextBox>
                 </Grid>
 
             </StackPanel>
@@ -138,7 +138,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* уровень охлажд. жидкости, Л</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="CoolantLevel_TextBox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
 
             </StackPanel>
@@ -151,7 +151,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* Запущен подогреватель</Label>
-                    <CheckBox Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"></CheckBox>
+                    <CheckBox Name="Heater_CheckBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"></CheckBox>
                 </Grid>
             </StackPanel>
         </StackPanel>
@@ -167,7 +167,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* Напряжение бортовой сети, В</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="OnBoardVoltage_TextBox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
             </StackPanel>
 
@@ -179,7 +179,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* Давление системы пуска, Атм</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="AirPressure_TextBox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
 
             </StackPanel>
@@ -192,7 +192,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* Температура за бортом, °C</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="OutsideCarTemperature_TextBox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
             </StackPanel>
 
@@ -204,7 +204,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* Температура масла, °C</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="OilTemperature_TextBox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
             </StackPanel>
 
@@ -216,7 +216,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* Температура охлажд. жидкости, °C</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="CoolantTemperature_Textbox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
             </StackPanel>
 
@@ -228,7 +228,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* Обороты двигателя, об/мин</Label>
-                    <TextBox Margin="5" Width="50" Grid.Column="1"></TextBox>
+                    <TextBox Name="RoundPerMinute_TextBox" Margin="5" Width="50" Grid.Column="1"></TextBox>
                 </Grid>
             </StackPanel>
 
@@ -236,38 +236,38 @@
             <Label Margin="5" HorizontalAlignment="Center">Лампочки</Label>
 
             <StackPanel Orientation="Horizontal">
-                <Border Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
+                <Border Name="SoundSignal_Lamp" Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
                 <Label Margin="5">Звуковой сигнал</Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Border Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
+                <Border Name="FuelPump_Lamp" Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
                 <Label Margin="5">Топливный насос</Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Border Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
+                <Border Name="OilPump_Lamp" Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
                 <Label Margin="5">Маслянный насос</Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Border Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
+                <Border Name="OnScreenMessage_Lamp" Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
                 <Label Margin="5">Сообщение на экране</Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Border Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
+                <Border Name="Heater_Lamp" Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
                 <Label Margin="5">Подогреватель</Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Border Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
+                <Border Name="Starter_Lamp" Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
                 <Label Margin="5">Стартер</Label>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Border Name="samp" Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
-                <Label Name="samp2" Margin="5">Пусковой клапан</Label>
+                <Border Name="StartingValve_Lamp" Margin="5" Background="red" CornerRadius="100" BorderThickness="1" BorderBrush="Black" Height="26" Width="26"></Border>
+                <Label Margin="5">Пусковой клапан</Label>
             </StackPanel>
         </StackPanel>
 
@@ -282,7 +282,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">Время работы двигателя</Label>
-                    <Label Margin="5" BorderBrush="Black" BorderThickness="1" Grid.Column="1"></Label>
+                    <Label Name="WorkTime_Label" Margin="5" BorderBrush="Black" BorderThickness="1" Grid.Column="1"></Label>
                 </Grid>
             </StackPanel>
 
@@ -294,7 +294,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">Множитель времени</Label>
-                    <Label Margin="5" BorderBrush="Black" BorderThickness="1" Grid.Column="1"></Label>
+                    <Label Name="Multiplier_Label" Margin="5" BorderBrush="Black" BorderThickness="1" Grid.Column="1"></Label>
                 </Grid>
             </StackPanel>
 
@@ -307,7 +307,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">Пройденное расстояние, Км</Label>
-                    <Label Margin="5" BorderBrush="Black" BorderThickness="1" Grid.Column="1"></Label>
+                    <Label Name="Distance_Label" Margin="5" BorderBrush="Black" BorderThickness="1" Grid.Column="1"></Label>
                 </Grid>
             </StackPanel>
 
@@ -315,14 +315,15 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="232"></ColumnDefinition>
-                        <ColumnDefinition Width="99"></ColumnDefinition>
+                        <ColumnDefinition Width="28"></ColumnDefinition>
+                        <ColumnDefinition Width="71"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Margin="5" Grid.Column="0">Потрачено топлива, Л</Label>
-                    <Label Margin="5" BorderBrush="Black" BorderThickness="1" Grid.Column="1"></Label>
+                    <Label Margin="5,5,5,5" Grid.Column="0">Потрачено топлива, Л</Label>
+                    <Label Name="WastedFuel_Label" Margin="5,5,5,5" BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="2"></Label>
                 </Grid>
             </StackPanel>
         </StackPanel>
-        <Button Grid.Row="1" Grid.Column="1">СТАРТ</Button>
+        <Button Name="StartStop_Button" Grid.Row="1" Grid.Column="1">СТАРТ</Button>
     </Grid>
 </Window>
