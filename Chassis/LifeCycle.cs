@@ -2,6 +2,11 @@
 {
     public class LifeCycle
     {
+        public void startLifeCycle()
+        {
 
+
+
+        }
     }
 }

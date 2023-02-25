@@ -7,7 +7,6 @@ namespace IceEmulator
     {
         public MainWindow()
         {
-            InitializeComponent();
         }
     }
 }

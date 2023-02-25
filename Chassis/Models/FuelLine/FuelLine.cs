@@ -6,8 +6,13 @@
         public FuelPump Pump { get; set; }
         public FuelValve Valve { get; set; }
         public Nozzle Nozzle { get; set; }
-        public FuelLine()
-       
 
+        public FuelLine(FuelTank fuelTank, FuelPump fuelPump, FuelValve fuelValve, Nozzle nozzle)
+        {
+            Tank = fuelTank;
+            Pump = fuelPump;
+            Valve = fuelValve;
+            Nozzle = nozzle;
+        }
     }
 }

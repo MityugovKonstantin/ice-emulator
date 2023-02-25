@@ -1,7 +1,7 @@
 ﻿using Engine.Enums;
 using System;
 
-namespace Engine.Other
+namespace Engine.Models.Other
 {
     public class Rocker
     {

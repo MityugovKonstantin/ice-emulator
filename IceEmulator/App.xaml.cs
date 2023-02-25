@@ -13,10 +13,11 @@ namespace IceEmulator
 
             Chassis chassis = new Chassis();
             MainWindow mainWindow = new MainWindow();
+            LifeCycle lifeCycle = new LifeCycle();
 
-            Presenter presenter = new Presenter(mainWindow, chassis);
+            Presenter presenter = new Presenter(mainWindow, chassis, lifeCycle);
 
-            mainWindow.InitializeComponent();
+            
             mainWindow.Activate();
             mainWindow.Show();
         }
