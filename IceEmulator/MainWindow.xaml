@@ -59,7 +59,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">Ручной тормоз</Label>
-                    <CheckBox Name="HandBrake_CheckBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"></CheckBox>
+                    <CheckBox Name="HandBrake_CheckBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" IsThreeState="False"></CheckBox>
                 </Grid>
 
             </StackPanel>
@@ -151,7 +151,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="5" Grid.Column="0">*TMP* Запущен подогреватель</Label>
-                    <CheckBox Name="Heater_CheckBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"></CheckBox>
+                    <CheckBox Name="Heater_CheckBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" IsThreeState="False"></CheckBox>
                 </Grid>
             </StackPanel>
         </StackPanel>
