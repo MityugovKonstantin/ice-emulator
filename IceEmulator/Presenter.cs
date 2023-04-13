@@ -5,6 +5,7 @@ using System;
 
 namespace GUI
 {
+    //ÏÎÄÊËŞ×ÈÒÜ ÂÛÂÎÄ ÍÀ ÃÓÈ
     public class Presenter
     {
         private readonly IGui _gui;

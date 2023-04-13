@@ -13,5 +13,11 @@ namespace Engine.Models
 
         public StartValue? StartValue { get; set; }
         public DeveloperFields? DeveloperFields { get; set; }
+
+        //пюгнапюрэяъ ян бяел гдеяэ
+        public void IncreaseTemperature()
+        {
+            StartValue.Temperature++;
+        }
     }
 }

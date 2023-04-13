@@ -7,6 +7,7 @@ using Engine.Enums;
 
 namespace IceEmulator
 {
+    //ВЫВОД ИЗМЕНЕНИЙ НА ГУИ
     public partial class MainWindow : Window, IGui
     {
         public MainWindow()
