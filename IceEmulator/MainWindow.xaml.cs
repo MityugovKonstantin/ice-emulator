@@ -13,7 +13,6 @@ namespace IceEmulator
         public MainWindow()
         {
             InitializeComponent();
-
             // StartStop_Button.Click += StartStop_Button_Click;
         }
 

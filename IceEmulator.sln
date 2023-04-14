@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "IceEmulator\Application.csproj", "{2012213C-F79F-43D0-A785-D76E7FD3A745}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View", "IceEmulator\View.csproj", "{2012213C-F79F-43D0-A785-D76E7FD3A745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Chassis\Engine.csproj", "{65BC9758-B934-4499-B6F2-BFE53ECE8046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "Chassis\Engine.csproj", "{65BC9758-B934-4499-B6F2-BFE53ECE8046}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NatsContracts", "NatsContracts\NatsContracts.csproj", "{A73D6EC8-03AF-4140-A8FA-C218F7F10327}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NatsContracts", "NatsContracts\NatsContracts.csproj", "{A73D6EC8-03AF-4140-A8FA-C218F7F10327}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

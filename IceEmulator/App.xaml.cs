@@ -16,7 +16,6 @@ namespace IceEmulator
 
             Presenter presenter = new Presenter(mainWindow, lifeCycle);
 
-            
             mainWindow.Activate();
             mainWindow.Show();
         }
