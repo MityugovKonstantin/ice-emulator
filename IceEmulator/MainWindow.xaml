@@ -326,7 +326,7 @@
 
             <Separator></Separator>
             <Label Margin="5" HorizontalAlignment="Center">Лог работы</Label>
-            <RichTextBox Name="Logger_RichTextBox" IsReadOnly="True" TextChanged="Logger_RichTextBox_TextChanged" VerticalScrollBarVisibility="Visible" MaxHeight="350"/>
+            <TextBox Name="Logger_TextBox" IsReadOnly="True" VerticalScrollBarVisibility="Visible" MaxHeight="350"/>
 
         </StackPanel>
 

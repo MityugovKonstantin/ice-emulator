@@ -15,9 +15,13 @@ namespace View.InteractiveElements
             if (_isEnable)
             {
                 Content = "Завершить";
-                //Logger_RichTextBox.AppendText($"Двигатель получил команду [{Content}]\n");
+                Logger.AddLog("[StartButton] => Начало работы двигателя");
             }
-            else Content = "Начать";
+            else
+            {
+                Content = "Начать";
+                Logger.AddLog("[StartButton] => Завершение работы двигателя");
+            }
         }
 
 

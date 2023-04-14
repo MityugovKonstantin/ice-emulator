@@ -4,6 +4,7 @@ using System.Windows;
 using Engine.Models;
 using Engine.Models.Temp;
 using Engine.Enums;
+using View.InteractiveElements;
 
 namespace IceEmulator
 {
@@ -14,9 +15,10 @@ namespace IceEmulator
         {
             InitializeComponent();
 
+            new Logger(Logger_TextBox);
+
             #region Event connecting
-            StartStop_Button.Click += StartStop_Button_Click;
-            Logger_RichTextBox.TextChanged += Logger_RichTextBox_TextChanged;
+            //StartStop_Button.Click += StartStop_Button_Click;
             #endregion
         }
         #region Events
@@ -74,10 +76,6 @@ namespace IceEmulator
                 Start?.Invoke(sender, chassis);
             }
             else Stop?.Invoke(sender, EventArgs.Empty);
-        }
-        private void Logger_RichTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            Logger_RichTextBox.ScrollToEnd();
         }
         #endregion
 
