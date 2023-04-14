@@ -14,60 +14,102 @@ namespace IceEmulator
         {
             InitializeComponent();
 
-            // StartStop_Button.Click += StartStop_Button_Click;
+            #region Event connecting
+            StartStop_Button.Click += StartStop_Button_Click;
+            Logger_RichTextBox.TextChanged += Logger_RichTextBox_TextChanged;
+            #endregion
         }
-
+        #region Events
         public event EventHandler<Chassis> Start;
-
+        //Инвокнуть стоп на стопе
+        public event EventHandler Stop;
         private void StartStop_Button_Click(object sender, RoutedEventArgs e)
         {
-            #region start value
-            bool isTemperatureParse = float.TryParse(OutsideTemperature_TextBox.Text, out float temperature);
-            if (!isTemperatureParse) throw new ArgumentException("Outside temperature invalid!");
-
-            bool isRotationParse = float.TryParse(RollAngle_TextBox.Text, out float rotation);
-            if (!isRotationParse) throw new ArgumentException("Roll angle invalid!");
-
-            StartValue startValue = new StartValue()
+            if (StartStop_Button.Content.ToString() == "СТАРТ")
             {
-                Temperature = temperature,
-                Rotation = rotation,
-                IsHandBrake = HandBrake_CheckBox.IsChecked == true ? true : false,
-                RockerPositions = MapRocker(Rocker_ComboBox.Text),
-                MovementType = MapMovement(Movement_ComboBox.Text)
-            };
-            #endregion
+                #region start value
+                bool isTemperatureParse = float.TryParse(OutsideTemperature_TextBox.Text, out float temperature);
+                if (!isTemperatureParse) throw new ArgumentException("Outside temperature invalid!");
 
-            #region developer fields
-            bool isOilLevelParse = float.TryParse(OilLevel_TextBox.Text, out float oilLevel);
-            if (!isOilLevelParse) throw new ArgumentException("Oil level invalid!");
+                bool isRotationParse = float.TryParse(RollAngle_TextBox.Text, out float rotation);
+                if (!isRotationParse) throw new ArgumentException("Roll angle invalid!");
 
-            bool isOilPressureParse = float.TryParse(OilPressure_TextBox.Text, out float oilPressure);
-            if (!isOilPressureParse) throw new ArgumentException("Oil pressure invalid!");
+                StartValue startValue = new StartValue()
+                {
+                    Temperature = temperature,
+                    Rotation = rotation,
+                    IsHandBrake = HandBrake_CheckBox.IsChecked == true ? true : false,
+                    RockerPositions = MapRocker(Rocker_ComboBox.Text),
+                    MovementType = MapMovement(Movement_ComboBox.Text)
+                };
+                #endregion
 
-            bool isCoolantLevelParse = float.TryParse(CoolantLevel_TextBox.Text, out float coolantLevel);
-            if (!isCoolantLevelParse) throw new ArgumentException("Coolant level invalid!");
+                #region developer fields
+                bool isOilLevelParse = float.TryParse(OilLevel_TextBox.Text, out float oilLevel);
+                if (!isOilLevelParse) throw new ArgumentException("Oil level invalid!");
 
-            DeveloperFields developerFields = new DeveloperFields()
-            {
-                OilValue = oilLevel,
-                OilPressure = oilPressure,
-                CoolantValue = coolantLevel,
-                IsHeater = Heater_CheckBox.IsChecked == true ? true : false
-            };
-            #endregion
+                bool isOilPressureParse = float.TryParse(OilPressure_TextBox.Text, out float oilPressure);
+                if (!isOilPressureParse) throw new ArgumentException("Oil pressure invalid!");
 
-            // build object (DTO (Data Transfer Object) - create object to send it in other module)
-            Chassis chassis = new Chassis()
-            {
-                StartValue = startValue,
-                DeveloperFields = developerFields
-            };
+                bool isCoolantLevelParse = float.TryParse(CoolantLevel_TextBox.Text, out float coolantLevel);
+                if (!isCoolantLevelParse) throw new ArgumentException("Coolant level invalid!");
 
-            // call event
-            Start?.Invoke(sender, chassis);
+                DeveloperFields developerFields = new DeveloperFields()
+                {
+                    OilValue = oilLevel,
+                    OilPressure = oilPressure,
+                    CoolantValue = coolantLevel,
+                    IsHeater = Heater_CheckBox.IsChecked == true ? true : false
+                };
+                #endregion
 
-            // change button name
+                // build object (DTO (Data Transfer Object) - create object to send it in other module)
+                Chassis chassis = new Chassis()
+                {
+                    StartValue = startValue,
+                    DeveloperFields = developerFields
+                };
+
+                // call event
+                Start?.Invoke(sender, chassis);
+            }
+            else if (StartStop_Button.Content.ToString() == "СТОП")
+                Stop?.Invoke(sender, EventArgs.Empty);
+            else
+                throw new Exception();
+            
+            ChangeButtonName();
+        }
+        private void Logger_RichTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            Logger_RichTextBox.ScrollToEnd();
+        }
+        #endregion
+
+        #region Mappers
+        private RockerPositions MapRocker(string value)
+        {
+            if (value == "N") return RockerPositions.NeutralGear;
+            else if (value == "1") return RockerPositions.FirstGear;
+            else if (value == "2") return RockerPositions.SecondGear;
+            else if (value == "3") return RockerPositions.ThirdGear;
+            else if (value == "4") return RockerPositions.FourthGear;
+            else throw new Exception("Rocker mapping failed");
+        }
+        private MovementType MapMovement(string value)
+        {
+            if (value == "Парковка") return MovementType.Parcking;
+            else if (value == "Остановка при работающем двигателе") return MovementType.StopWithEngineRunning;
+            else if (value == "Езда вперёд") return MovementType.Rectilinear;
+            else if (value == "Езда назад") return MovementType.Back;
+            else if (value == "Круговая езда") return MovementType.Circular;
+            else throw new Exception("Movement mapping failed");
+        }
+        #endregion
+
+        #region Other
+        private void ChangeButtonName()
+        {
             if (StartStop_Button.Content.ToString() == "СТАРТ")
             {
                 Logger_RichTextBox.AppendText($"Двигатель получил команду [{StartStop_Button.Content}]\n");
@@ -82,35 +124,6 @@ namespace IceEmulator
             if (StartStop_Button.Content.ToString() == "СТОП")
                 Logger_RichTextBox.AppendText($"Делаем вид что всё нормально работает\n");
         }
-
-
-
-        private RockerPositions MapRocker(string value)
-        {
-            if (value == "N") return RockerPositions.NeutralGear;
-            else if (value == "1") return RockerPositions.FirstGear;
-            else if (value == "2") return RockerPositions.SecondGear;
-            else if (value == "3") return RockerPositions.ThirdGear;
-            else if (value == "4") return RockerPositions.FourthGear;
-            else throw new Exception("Rocker mapping failed");
-        }
-
-        private MovementType MapMovement(string value)
-        {
-            if (value == "Парковка") return MovementType.Parcking;
-            else if (value == "Остановка при работающем двигателе") return MovementType.StopWithEngineRunning;
-            else if (value == "Езда вперёд") return MovementType.Rectilinear;
-            else if (value == "Езда назад") return MovementType.Back;
-            else if (value == "Круговая езда") return MovementType.Circular;
-            else throw new Exception("Movement mapping failed");
-        }
-
-        private void Logger_RichTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            Logger_RichTextBox.ScrollToEnd();
-            
-           // Logger_RichTextBox.SelectionStart = Logger_RichTextBox.Text.Length;
-           // Logger_RichTextBox.ScrollToCaret();
-        }
+        #endregion
     }
 }

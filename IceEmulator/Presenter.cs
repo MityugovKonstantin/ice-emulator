@@ -17,10 +17,16 @@ namespace GUI
             _lifeCycle = lifeCycle;
 
             _gui.Start += Start;
+            _gui.Stop += Stop;
         }
 
-        private void Start(object? sender, Chassis chassis) {
+        private void Start(object? sender, Chassis chassis)
+        {
             _lifeCycle.StartLifeCycle(chassis);
+        }
+        private void Stop(object? sender, EventArgs _)
+        {
+            _lifeCycle.StopLifeCycle();
         }
     }
 }
