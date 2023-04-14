@@ -12,7 +12,11 @@ namespace View.InteractiveElements
         {
             base.OnClick();
             _isEnable = !_isEnable;
-            if (_isEnable) Content = "Завершить";
+            if (_isEnable)
+            {
+                Content = "Завершить";
+                //Logger_RichTextBox.AppendText($"Двигатель получил команду [{Content}]\n");
+            }
             else Content = "Начать";
         }
 

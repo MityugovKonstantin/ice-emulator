@@ -25,7 +25,7 @@ namespace IceEmulator
         public event EventHandler Stop;
         private void StartStop_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (StartStop_Button.Content.ToString() == "СТАРТ")
+            if (!StartStop_Button.GetIsEnable())
             {
                 #region start value
                 bool isTemperatureParse = float.TryParse(OutsideTemperature_TextBox.Text, out float temperature);
@@ -73,12 +73,7 @@ namespace IceEmulator
                 // call event
                 Start?.Invoke(sender, chassis);
             }
-            else if (StartStop_Button.Content.ToString() == "СТОП")
-                Stop?.Invoke(sender, EventArgs.Empty);
-            else
-                throw new Exception();
-            
-            ChangeButtonName();
+            else Stop?.Invoke(sender, EventArgs.Empty);
         }
         private void Logger_RichTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
@@ -104,25 +99,6 @@ namespace IceEmulator
             else if (value == "Езда назад") return MovementType.Back;
             else if (value == "Круговая езда") return MovementType.Circular;
             else throw new Exception("Movement mapping failed");
-        }
-        #endregion
-
-        #region Other
-        private void ChangeButtonName()
-        {
-            if (StartStop_Button.Content.ToString() == "СТАРТ")
-            {
-                Logger_RichTextBox.AppendText($"Двигатель получил команду [{StartStop_Button.Content}]\n");
-                StartStop_Button.Content = "СТОП";
-            }
-            else if (StartStop_Button.Content.ToString() == "СТОП")
-            {
-                Logger_RichTextBox.AppendText($"Двигатель получил команду [{StartStop_Button.Content}]\n");
-                StartStop_Button.Content = "СТАРТ";
-            }
-
-            if (StartStop_Button.Content.ToString() == "СТОП")
-                Logger_RichTextBox.AppendText($"Делаем вид что всё нормально работает\n");
         }
         #endregion
     }
