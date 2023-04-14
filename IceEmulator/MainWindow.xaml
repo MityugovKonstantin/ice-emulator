@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:MyNamespace="clr-namespace:View.InteractiveElements" 
         xmlns:local="clr-namespace:IceEmulator"
         mc:Ignorable="d"
         MinHeight="700" MinWidth="1000"
         Title="MainWindow" Height="700" Width="1000">
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
@@ -323,12 +323,13 @@
                     <Label Name="WastedFuel_Label" Margin="5,5,5,5" BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="2"></Label>
                 </Grid>
             </StackPanel>
-            
+
             <Separator></Separator>
             <Label Margin="5" HorizontalAlignment="Center">Лог работы</Label>
-            <RichTextBox Name="Logger_RichTextBox" IsReadOnly="True" VerticalScrollBarVisibility="Visible" MaxHeight="350"/>
+            <RichTextBox Name="Logger_RichTextBox" IsReadOnly="True" TextChanged="Logger_RichTextBox_TextChanged" VerticalScrollBarVisibility="Visible" MaxHeight="350"/>
 
         </StackPanel>
-        <Button Name="StartStop_Button" Grid.Row="1" Grid.Column="1">СТАРТ</Button>
-    </Grid>
+
+        <MyNamespace:StartButton x:Name="StartStop_Button" Grid.Row="1" Grid.Column="1">Старт</MyNamespace:StartButton>
+        </Grid>
 </Window>
