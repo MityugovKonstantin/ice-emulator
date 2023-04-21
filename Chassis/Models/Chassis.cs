@@ -5,16 +5,15 @@ namespace Engine.Models
 {
     public class Chassis : IChassis
     {
-        /*public Models.CoolingSystem? CoolingSystem { get; set; }
+        public Models.CoolingSystem? CoolingSystem { get; set; }
         public OtherParam? OtherParam { get; set; }
         public Models.OilLine? OilLine {get; set;}
         public Models.HeatingSystem? HeatingSystem { get; set; }
-        public Ice? Ice { get; set; }*/
+        public Ice? Ice { get; set; }
 
         public StartValue? StartValue { get; set; }
         public DeveloperFields? DeveloperFields { get; set; }
 
-        //–¿«Œ¡–¿“‹—ﬂ —Œ ¬—≈Ã «ƒ≈—‹
         public void IncreaseTemperature()
         {
             StartValue.Temperature++;

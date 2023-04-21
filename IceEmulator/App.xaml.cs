@@ -1,6 +1,7 @@
 ﻿using Engine;
 using GUI;
 using System.Windows;
+using View;
 
 namespace IceEmulator
 {
@@ -13,8 +14,8 @@ namespace IceEmulator
 
             MainWindow mainWindow = new MainWindow();
             LifeCycle lifeCycle = new LifeCycle();
-
-            Presenter presenter = new Presenter(mainWindow, lifeCycle);
+            ChassisInfromation chassisInfromation = new ChassisInfromation();
+            Presenter presenter = new Presenter(mainWindow, lifeCycle, chassisInfromation);
 
             mainWindow.Activate();
             mainWindow.Show();

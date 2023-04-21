@@ -1,26 +1,84 @@
-﻿using GUI;
-using System;
+﻿using System;
 using System.Windows;
 using Engine.Models;
 using Engine.Models.Temp;
 using Engine.Enums;
 using View.InteractiveElements;
+using View.Interfaces;
+using System.Threading;
+using System.Timers;
+using System.Diagnostics;
 
 namespace IceEmulator
 {
-    //ВЫВОД ИЗМЕНЕНИЙ НА ГУИ
     public partial class MainWindow : Window, IGui
     {
+        #region Variables
+        private delegate void _Updater(Chassis chassis);
+        private delegate void _DateTimeUpdater(TimeSpan currentTime);
+        private DateTime _startTime;
+        private System.Timers.Timer _timer;
+        #endregion
         public MainWindow()
         {
             InitializeComponent();
 
+            _startTime = DateTime.Now;
+            SetTimer();//start counting worktime
+            
             new Logger(Logger_TextBox);
 
             #region Event connecting
-            //StartStop_Button.Click += StartStop_Button_Click;
+            StartStop_Button.Click += StartStop_Button_Click;
             #endregion
         }
+
+        #region Chassis to GUI
+        /// <summary>
+        /// Calling method which update information on GUI
+        /// </summary>
+        /// <param name="chassis"></param>
+        public void Update(Chassis chassis)
+        {
+            _Updater updater = GuiUpdate;
+            Dispatcher.Invoke(updater, new object[] { chassis });
+        }
+        private void GuiUpdate(Chassis chassis)
+        {
+            //OnBoardVoltage_TextBox.Text = chassis.***.ToString();
+            //AirPressure_TextBox = chassis.***.ToString();
+            //OutsideCarTemperature_TextBox = chassis.***.ToString();
+            //OilTemperature_TextBox = chassis.***.ToString();
+            //CoolantTemperature_Textbox = chassis.***.ToString();
+            //RoundPerMinute_TextBox = chassis.***.ToString();
+
+        }
+        #endregion
+
+        #region Work time of programm
+        /// <summary>
+        /// Set and start timer which count work time of programm
+        /// </summary>
+        private void SetTimer()
+        {
+            _timer = new System.Timers.Timer(1000);
+            _timer.Elapsed += DateTimeUpdate;
+            _timer.Start();
+
+        }
+        private void DateTimeUpdate(object sourse, ElapsedEventArgs Now)
+        {
+            var currentTime = Now.SignalTime - _startTime;
+            _DateTimeUpdater updater = GuiDateTimeUpdater;
+            Dispatcher.Invoke(updater, new object[] { currentTime });
+        }
+        private void GuiDateTimeUpdater(TimeSpan currentTime)
+        {
+            string newContent = $"{currentTime.Hours}:{currentTime.Minutes}:{currentTime.Seconds}";
+            WorkTime_Label.Content = newContent;
+        }
+        #endregion
+
         #region Events
         public event EventHandler<Chassis> Start;
         //Инвокнуть стоп на стопе
